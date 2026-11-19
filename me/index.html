@@ -181,6 +181,7 @@
   .mood{position:relative;text-align:left;border:1px solid var(--line);background:#fff;padding:16px 15px 15px;cursor:pointer;font:inherit;color:inherit;transition:.18s;border-radius:2px}
   .mood:hover{border-color:var(--ink)}
   .mood .sw{display:flex;gap:4px;margin-bottom:13px}
+  .mood .txt{display:block;min-width:0}
   .mood .sw i{width:24px;height:9px;border:1px solid rgba(34,36,40,.08)}
   .mood .t{display:block;font-size:14.5px;font-weight:700;letter-spacing:-.02em;line-height:1.4;padding-right:40px}
   .mood .d{display:block;font-size:12px;color:var(--sub);margin-top:5px;line-height:1.55}
@@ -344,8 +345,9 @@
     .opt .t{font-size:15px}
     .opt .d{font-size:12.5px}
     .moods,.chks{grid-template-columns:1fr}
-    .mood{padding:14px 14px 13px}
-    .mood .sw{margin-bottom:10px}
+    .mood{padding:13px;display:grid;grid-template-columns:12px minmax(0,1fr);gap:12px;align-items:start}
+    .mood .sw{flex-direction:column;margin-bottom:0;gap:3px}
+    .mood .sw i{width:12px;height:15px}
     .mood .t{font-size:14px}
     .mood .d{font-size:11.5px;margin-top:3px}
     .chk{padding:12px 13px}
@@ -1152,7 +1154,7 @@
       b.dataset.value = m.v;
       var sw = m.sw.map(function(c){ return '<i style="background:'+c+'"></i>'; }).join('');
       var rec = (m.v === recommended) ? '<span class="rec">추천</span>' : '';
-      b.innerHTML = '<span class="sw">'+sw+'</span>'+rec+'<span class="t">'+esc(m.v)+'</span><span class="d">'+esc(m.d)+'</span>';
+      b.innerHTML = '<span class="sw">'+sw+'</span>'+rec+'<span class="txt"><span class="t">'+esc(m.v)+'</span><span class="d">'+esc(m.d)+'</span></span>';
       b.addEventListener('click', function(){
         state.answers.mood = m.v;
         state.touchedMood = true;
