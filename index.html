@@ -37,8 +37,8 @@
   "founder": { "@type": "Person", "name": "곽도연", "jobTitle": "대표 · AI융합교육 강사" },
   "employee": [
     { "@type": "Person", "name": "곽도연", "jobTitle": "와랑 디지털 AI 교육센터 대표 · AI융합교육 강사" },
-    { "@type": "Person", "name": "주수진", "jobTitle": "강사 · 디자인 기반 AI 교육" },
-    { "@type": "Person", "name": "오현의", "jobTitle": "강사 · 컴퓨터학원 운영 · 디지털 자격증" }
+    { "@type": "Person", "name": "오현의", "jobTitle": "강사 · 컴퓨터학원 운영 · 디지털 자격증" },
+    { "@type": "Person", "name": "주수진", "jobTitle": "강사 · 디자인 기반 AI 교육" }
   ]
 }
 </script>
@@ -215,35 +215,18 @@
   .orgs .name{font-size:clamp(16.5px,1.8vw,19px);font-weight:600;letter-spacing:-.02em}
   .orgs .kind{font-size:11.5px;font-weight:600;color:var(--sub);letter-spacing:.02em;border:1px solid var(--soft);background:var(--pale);padding:4px 9px;border-radius:2px;white-space:nowrap}
 
-  /* ---------- instructor ---------- */
-  .inst{background:#FAF9F8;border:1px solid var(--line);padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 300px;gap:clamp(28px,4vw,56px);align-items:center}
-  .inst .role{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--magenta);text-transform:uppercase}
-  .inst h3{margin-top:16px;font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.03em}
-  .inst .title{margin-top:8px;font-size:16px;font-weight:600;color:var(--ink)}
-  .inst p{margin-top:20px;color:var(--sub);font-size:15.5px;max-width:38em}
-  .inst .mark{border:1px solid var(--line);background:#fff;padding:clamp(18px,2.4vw,28px)}
-  .inst .mark .cap{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
-  .inst .mark .sig{margin-top:10px;font-size:26px;font-weight:800;letter-spacing:-.03em}
-  .inst .mark .sig::after{content:"";display:block;width:34px;height:2px;background:var(--magenta);margin-top:12px}
-  .inst .mark .en{display:block;margin-top:6px;font-size:10px;letter-spacing:.14em;color:var(--sub)}
-  .inst .mark ul{margin-top:18px;border-top:1px solid var(--soft);padding-top:14px;display:grid;gap:6px;font-size:13px;color:var(--sub)}
-  .inst-id{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,2.6vw,32px);align-items:center}
-  .portrait{width:clamp(112px,13vw,152px);aspect-ratio:1/1;margin:0;border-radius:50%;border:1px solid var(--line);background:#fff;overflow:hidden;flex:none;box-shadow:0 0 0 6px #fff,0 0 0 7px var(--soft)}
+  /* ---------- instructors ---------- */
+  .team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .member{background:#fff;padding:clamp(26px,3vw,36px);display:flex;flex-direction:column}
+  .portrait,.avatar{width:clamp(78px,8vw,96px);aspect-ratio:1/1;flex:none;margin:0;border-radius:50%}
+  .portrait{border:1px solid var(--line);background:#fff;overflow:hidden;box-shadow:0 0 0 6px #fff,0 0 0 7px var(--soft)}
   .portrait img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
-
-  /* ---------- instructors team ---------- */
-  .team-head{display:flex;align-items:center;gap:14px;margin:clamp(30px,3.6vw,44px) 0 14px}
-  .team-head .lab{font-size:11.5px;font-weight:700;letter-spacing:.16em;color:var(--mute);white-space:nowrap}
-  .team-head .rule{flex:1;height:1px;background:var(--line)}
-  .team-head .cnt{font-size:11.5px;font-weight:700;letter-spacing:.12em;color:var(--mute)}
-  .team{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
-  .member{background:#fff;padding:clamp(22px,2.6vw,32px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px,2vw,22px);align-items:start}
-  .avatar{width:clamp(56px,6vw,68px);aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center;border:1px solid #EFE0DC;background:linear-gradient(155deg,#FCEFEB 0%,#F8E5E4 55%,#F6E9E7 100%);color:var(--magenta);font-size:clamp(22px,2.4vw,26px);font-weight:700;letter-spacing:.02em;line-height:1;flex:none}
-  .member .mrole{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--magenta);margin:2px 0 0}
-  .member h4{margin:8px 0 0;font-size:clamp(19px,2vw,23px);font-weight:800;letter-spacing:-.025em;line-height:1.25}
-  .member .mtitle{margin:6px 0 0;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.55}
-  .member .mdesc{margin:10px 0 0;font-size:14px;color:var(--sub);line-height:1.65}
-  .member .mtags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
+  .avatar{display:grid;place-items:center;border:1px solid #EFE0DC;background:linear-gradient(155deg,#FCEFEB 0%,#F8E5E4 55%,#F6E9E7 100%);color:var(--magenta);font-size:clamp(24px,2.4vw,28px);font-weight:700;letter-spacing:.02em;line-height:1}
+  .member .mrole{margin:24px 0 0;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--magenta)}
+  .member h3{margin:8px 0 0;font-size:clamp(22px,2.2vw,26px);font-weight:800;letter-spacing:-.03em;line-height:1.2}
+  .member .mtitle{margin:8px 0 0;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.55}
+  .member .mdesc{margin:14px 0 0;font-size:14px;color:var(--sub);line-height:1.7}
+  .member .mtags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding:16px 0 0;border-top:1px solid var(--soft);list-style:none}
   .member .mtags li{font-size:11.5px;font-weight:600;color:var(--sub);border:1px solid var(--soft);background:#FCFBFB;padding:4px 9px;border-radius:2px;white-space:nowrap}
 
   /* ---------- contact ---------- */
@@ -276,14 +259,16 @@
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .logo-card{max-width:520px}
     .sec-side{margin-left:0;flex-basis:100%;margin-top:4px;text-align:left}
-    .inst{grid-template-columns:1fr}
-    .inst .mark{max-width:340px}
     .clients{grid-template-columns:1fr}
     .origin{grid-template-columns:1fr}
     .origin .label{position:static}
   }
-  @media (max-width:760px){
+  @media (max-width:980px){
     .team{grid-template-columns:1fr}
+    .member{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:clamp(18px,3vw,28px);align-items:start}
+    .member>.mrole,.member>h3,.member>.mtitle,.member>.mdesc,.member>.mtags{grid-column:2}
+    .member .mrole{margin-top:2px}
+    .member .mtags{margin-top:14px}
   }
   @media (max-width:860px){
     .nav{display:none}
@@ -312,10 +297,10 @@
     .card:last-child{grid-column:span 1}
     .orgs li{grid-template-columns:34px minmax(0,1fr);row-gap:6px}
     .orgs .kind{grid-column:2;justify-self:start}
-    .portrait{width:96px}
-    .inst-id{gap:16px}
-    .member{padding:22px 18px;gap:14px}
-    .avatar{width:52px;font-size:20px}
+    .member{display:flex;flex-direction:column;padding:24px 20px}
+    .member .mrole{margin-top:20px}
+    .portrait,.avatar{width:84px}
+    .member .mtags{margin-top:auto}
     .site-foot .in{flex-direction:column;align-items:flex-start}
   }
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -609,68 +594,44 @@
         <div class="sec-side"><span class="en">Founder &amp; Instructors</span></div>
       </div>
 
-      <div class="inst">
-        <div>
-          <div class="inst-id">
-            <figure class="portrait">
-              <img src="assets/instructor-doyeon.jpg" width="600" height="600" alt="곽도연 대표 강사 프로필 사진" decoding="async">
-            </figure>
-            <div>
-              <p class="role">Founder</p>
-              <h3>곽도연</h3>
-              <p class="title">와랑 디지털 AI 교육센터 대표 · AI융합교육 강사</p>
-            </div>
-          </div>
-          <p>제주를 기반으로 공공기관·기업·학교·청년·시니어를 만나며 AI·디지털 교육을 진행해 왔습니다. 생성형 AI 활용, AI 영상 제작, 콘텐츠 제작, AI 아티스트 양성까지 — 수업의 끝에는 언제나 수강생의 결과물이 남습니다.</p>
-          <p>수업은 늘 결과물로 끝납니다. 카드뉴스, 영상, 굿즈, AI 아트처럼 손에 잡히는 결과물을 함께 만들고, 그 과정에서 AI를 책임 있게 쓰는 법을 익힙니다.</p>
-          <p>AI·디지털 교육만이 아니라 시니어의 디지털 격차를 좁히는 강의, 도박·스마트폰·알코올·마약 중독예방 교육까지 함께합니다. 기관이 마주한 문제를 수업의 주제로 옮겨 오는 것이 와랑의 방식입니다.</p>
-        </div>
-        <div class="mark">
-          <span class="cap">Warang Digital AI Edu Center</span>
-          <div class="sig">곽도연</div>
-          <span class="en">Representative · AI Convergence Instructor</span>
-          <ul>
-            <li>기관·학교·청년·시니어 맞춤 출강</li>
-            <li>생성형 AI · AI 영상 · 디지털 콘텐츠</li>
-            <li>시니어 디지털 격차 해소</li>
-            <li>중독예방 교육 · 도박·스마트폰·알코올·마약</li>
-            <li>AI 강사 양성 · 1:1 · 소그룹</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="team-head">
-        <span class="lab">함께하는 강사</span>
-        <span class="rule"></span>
-        <span class="cnt">02</span>
-      </div>
-
       <div class="team">
         <article class="member">
-          <div class="avatar" aria-hidden="true">S</div>
-          <div>
-            <p class="mrole">Instructor</p>
-            <h4>주수진</h4>
-            <p class="mtitle">강사 · 디자인 기반 AI 교육</p>
-            <p class="mdesc">디자이너 출신으로, 시각과 콘텐츠를 다루는 감각을 살려 AI 교육을 설계합니다. 학교·기관 현장에서 디자인과 AI를 함께 다루는 수업을 진행합니다.</p>
-            <ul class="mtags">
-              <li>디자인 기반 AI 교육</li>
-              <li>학교·기관 출강</li>
-            </ul>
-          </div>
+          <figure class="portrait">
+            <img src="assets/instructor-doyeon.jpg" width="600" height="600" alt="곽도연 대표 강사 프로필 사진" decoding="async">
+          </figure>
+          <p class="mrole">Founder · 대표</p>
+          <h3>곽도연</h3>
+          <p class="mtitle">와랑 디지털 AI 교육센터 대표 · AI융합교육 강사</p>
+          <p class="mdesc">제주를 기반으로 공공기관·기업·학교·청년·시니어를 만나며 AI·디지털 교육을 진행합니다. 생성형 AI 활용부터 AI 영상, 콘텐츠 제작, AI 아티스트 양성까지 — 수업은 언제나 수강생의 결과물로 끝납니다.</p>
+          <p class="mdesc">시니어의 디지털 격차를 좁히는 강의와 도박·스마트폰·알코올·마약 중독예방 교육도 함께합니다.</p>
+          <ul class="mtags">
+            <li>생성형 AI · AI 영상</li>
+            <li>AI 아티스트 양성</li>
+            <li>시니어 디지털 격차 해소</li>
+            <li>중독예방 교육</li>
+          </ul>
         </article>
         <article class="member">
           <div class="avatar" aria-hidden="true">H</div>
-          <div>
-            <p class="mrole">Instructor</p>
-            <h4>오현의</h4>
-            <p class="mtitle">강사 · 컴퓨터학원 운영 · 디지털 자격증 전문</p>
-            <p class="mdesc">컴퓨터학원을 운영하며 쌓은 실무 경험으로, 기초 디지털 역량부터 디지털 전문 자격증 취득까지 체계적으로 지도합니다.</p>
-            <ul class="mtags">
-              <li>컴퓨터학원 운영</li>
-              <li>디지털 자격증 취득</li>
-            </ul>
-          </div>
+          <p class="mrole">Instructor</p>
+          <h3>오현의</h3>
+          <p class="mtitle">강사 · 컴퓨터학원 운영 · 디지털 자격증 전문</p>
+          <p class="mdesc">컴퓨터학원을 운영하며 쌓은 실무 경험으로, 기초 디지털 역량부터 디지털 전문 자격증 취득까지 체계적으로 지도합니다.</p>
+          <ul class="mtags">
+            <li>컴퓨터학원 운영</li>
+            <li>디지털 자격증 취득</li>
+          </ul>
+        </article>
+        <article class="member">
+          <div class="avatar" aria-hidden="true">S</div>
+          <p class="mrole">Instructor</p>
+          <h3>주수진</h3>
+          <p class="mtitle">강사 · 디자인 기반 AI 교육</p>
+          <p class="mdesc">디자이너 출신으로, 시각과 콘텐츠를 다루는 감각을 살려 AI 교육을 설계합니다. 학교·기관 현장에서 디자인과 AI를 함께 다루는 수업을 진행합니다.</p>
+          <ul class="mtags">
+            <li>디자인 기반 AI 교육</li>
+            <li>학교·기관 출강</li>
+          </ul>
         </article>
       </div>
     </div>
