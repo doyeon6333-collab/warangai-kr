@@ -223,6 +223,9 @@
   .portrait img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%}
   .avatar{display:grid;place-items:center;border:1px solid #EFE0DC;background:linear-gradient(155deg,#FCEFEB 0%,#F8E5E4 55%,#F6E9E7 100%);color:var(--magenta);font-size:clamp(24px,2.4vw,28px);font-weight:700;letter-spacing:.02em;line-height:1}
   .member .mrole{margin:24px 0 0;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--magenta)}
+  .mname{display:flex;align-items:center;gap:10px;margin-top:8px}
+  .mname h3{margin:0}
+  .badge{font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--magenta);border:1px solid #EFC9DA;background:#FDF3F7;padding:2px 7px;border-radius:2px;line-height:1.5}
   .member h3{margin:8px 0 0;font-size:clamp(22px,2.2vw,26px);font-weight:800;letter-spacing:-.03em;line-height:1.2}
   .member .mtitle{margin:8px 0 0;font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.55}
   .member .mdesc{margin:14px 0 0;font-size:14px;color:var(--sub);line-height:1.7}
@@ -599,8 +602,8 @@
           <figure class="portrait">
             <img src="assets/instructor-doyeon.jpg" width="600" height="600" alt="곽도연 대표 강사 프로필 사진" decoding="async">
           </figure>
-          <p class="mrole">Founder · 대표</p>
-          <h3>곽도연</h3>
+          <p class="mrole">Founder</p>
+          <div class="mname"><h3>곽도연</h3><span class="badge">대표</span></div>
           <p class="mtitle">와랑 디지털 AI 교육센터 대표 · AI융합교육 강사</p>
           <p class="mdesc">제주를 기반으로 공공기관·기업·학교·청년·시니어를 만나며 AI·디지털 교육을 진행합니다. 생성형 AI 활용부터 AI 영상, 콘텐츠 제작, AI 아티스트 양성까지 — 수업은 언제나 수강생의 결과물로 끝납니다.</p>
           <p class="mdesc">시니어의 디지털 격차를 좁히는 강의와 도박·스마트폰·알코올·마약 중독예방 교육도 함께합니다.</p>
