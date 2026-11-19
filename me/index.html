@@ -208,6 +208,7 @@
   .field:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(34,36,40,.055)}
   .field.is-name{font-size:20px;font-weight:600;padding:15px 16px;letter-spacing:-.02em}
   textarea.field{min-height:132px;resize:vertical;display:block}
+  textarea.field.is-line{min-height:92px;font-size:17px;line-height:1.7;resize:none}
   .field-hint{display:flex;justify-content:space-between;gap:12px;margin-top:7px;font-size:11.5px;color:var(--mute)}
   .chips-h{margin-top:18px;font-size:11.5px;letter-spacing:.06em;color:var(--mute);font-weight:600;display:flex;align-items:center;gap:7px}
   .chips-h::before{content:"";width:14px;height:1px;background:var(--line)}
@@ -1196,14 +1197,14 @@
     var frag = document.createElement('div');
     var isBlocks = q.kind === 'blocks' || step === 6 || step === 7;
     var field;
-    if (isBlocks) {
-      field = document.createElement('textarea');
-      field.className = 'field';
-      field.rows = step === 6 ? 4 : 4;
-    } else {
+    if (step === 1) {
       field = document.createElement('input');
       field.type = 'text';
-      field.className = 'field' + (step === 1 ? ' is-name' : '');
+      field.className = 'field is-name';
+    } else {
+      field = document.createElement('textarea');
+      field.className = 'field' + (step === 2 ? ' is-line' : '');
+      field.rows = step === 2 ? 2 : 4;
     }
     field.placeholder = q.ph || '';
     field.value = answerFor(step) || '';
@@ -1253,6 +1254,8 @@
             field.value = text;
             field.focus();
             field.setSelectionRange(text.length, text.length);
+            field.scrollLeft = 0;
+            requestAnimationFrame(function(){ field.scrollLeft = 0; });
           }
           setAnswer(step, field.value);
           updateCounter();
@@ -1316,9 +1319,9 @@
       b.dataset.step = i;
       var cls = '';
       if (i === state.step) cls = 'is-cur';
-      else if (hasAnswer(i)) cls = 'is-done';
+      else if (i < state.step) cls = 'is-done';
       b.className = cls;
-      b.innerHTML = '<span class="n">' + (i === state.step ? '●' : (hasAnswer(i) ? '✓' : '0'+(i+1))) + '</span><span>' + esc(STEP_LABELS[i]) + '</span>';
+      b.innerHTML = '<span class="n">' + (i === state.step ? '●' : (i < state.step ? '✓' : '0'+(i+1))) + '</span><span>' + esc(STEP_LABELS[i]) + '</span>';
       if (i === state.step) b.setAttribute('aria-current','step');
       b.addEventListener('click', function(){
         var target = parseInt(this.dataset.step, 10);
@@ -1386,6 +1389,7 @@
     var t = e.target;
     var tag = t && t.tagName;
     if (tag === 'TEXTAREA') {
+      if (state.step === 2 && !e.shiftKey) { e.preventDefault(); next(); return; }
       if (!(e.metaKey || e.ctrlKey)) return;
     }
     if (tag === 'BUTTON' || tag === 'A' || tag === 'SUMMARY') return;
