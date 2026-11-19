@@ -7,6 +7,7 @@
 ## 구성
 - `index.html` — 전체 페이지(HTML + CSS + 최소 JS, Pretendard CDN)
 - `assets/wr-logo.svg` — WR 노드 로고 벡터 원본
+- `assets/instructor-doyeon.jpg` — 대표 강사(곽도연) 프로필 사진 (600×600, 원형 프레임으로 표시)
 - `assets/og-image.png` — 카카오톡·블로그 공유용 미리보기 이미지(1200×630)
 - `assets/favicon.svg` — 파비콘
 - `CNAME` — 커스텀 도메인 `warangai.kr` (GitHub Pages)
