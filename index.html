@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>와랑 디지털 AI 교육센터 | 생각을 깨우는 AI융합교육센터</title>
+<meta name="description" content="와랑 디지털 AI 교육센터(Warang Digital AI Edu Center). 생각을 깨우다, AI로 연결하다. 제주에서 사람 중심 AI·디지털 교육, 기관·학교·청년·시니어 맞춤형 출강과 강의·컨설팅을 진행합니다.">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website">
+<meta property="og:title" content="와랑 디지털 AI 교육센터 | 생각을 깨우는 AI융합교육센터">
+<meta property="og:description" content="생각을 깨우다, AI로 연결하다. 사람 중심 AI융합교육 — 기관·학교·청년·시니어 맞춤형 출강.">
+<meta property="og:url" content="https://warangai.kr/">
+<meta property="og:site_name" content="와랑 디지털 AI 교육센터">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "와랑 디지털 AI 교육센터",
+  "alternateName": "Warang Digital AI Edu Center",
+  "slogan": "생각을 깨우다, AI로 연결하다.",
+  "url": "https://warangai.kr/",
+  "email": "edu@warangai.kr",
+  "telephone": "+82-10-3900-6333",
+  "address": { "@type": "PostalAddress", "addressRegion": "제주특별자치도", "addressCountry": "KR" },
+  "founder": { "@type": "Person", "name": "곽도연", "jobTitle": "대표 · AI융합교육 강사" }
+}
+</script>
+<style>
+  :root{
+    --ink:#222428;
+    --sub:#5C6068;
+    --mute:#8A8E95;
+    --line:#DCD8D1;
+    --soft:#EEEAE5;
+    --pale:#F3EFF1;
+    --magenta:#B5125E;
+    --white:#FFFFFF;
+    --max:1200px;
+    --pad:clamp(20px,5vw,40px);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--white);color:var(--ink);
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    font-size:17px;line-height:1.7;letter-spacing:-0.01em;
+    -webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+  ul,ol{padding:0;list-style:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+  .en{font-family:"Pretendard Variable",Pretendard,sans-serif;letter-spacing:.16em;text-transform:uppercase;font-size:11px;font-weight:600;color:var(--mute)}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:12px 18px;z-index:200}
+  .skip:focus{left:12px;top:12px}
+
+  /* ---------- header ---------- */
+  .site-head{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.88);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-in{max-width:var(--max);margin:0 auto;padding:0 var(--pad);height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand svg{width:52px;height:auto;flex:none}
+  .brand-txt{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+  .brand-txt b{font-size:15.5px;font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+  .brand-txt b i{font-style:normal;color:var(--magenta)}
+  .brand-txt span{font-size:10.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;margin-top:2px;white-space:nowrap}
+  .nav{display:flex;align-items:center;gap:30px}
+  .nav a{font-size:15px;color:var(--sub);font-weight:500;transition:color .18s}
+  .nav a:hover{color:var(--magenta)}
+  .head-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;font-size:14.5px;font-weight:600;
+    padding:11px 20px;border-radius:2px;transition:background .18s;white-space:nowrap;
+  }
+  .head-cta:hover{background:var(--magenta)}
+  .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:2px;cursor:pointer;align-items:center;justify-content:center}
+  .menu-btn span{display:block;width:18px;height:1.5px;background:var(--ink);position:relative}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:1.5px;background:var(--ink)}
+  .menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+  .mobile-nav{display:none;border-bottom:1px solid var(--line);background:#fff}
+  .mobile-nav.open{display:block}
+  .mobile-nav ul{padding:8px var(--pad) 22px}
+  .mobile-nav li{border-top:1px solid var(--soft)}
+  .mobile-nav li:first-child{border-top:0}
+  .mobile-nav a{display:block;padding:15px 2px;font-size:16px;font-weight:600;color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:clamp(56px,8vw,104px) 0 clamp(48px,6vw,84px);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(720px 420px at 88% -8%,rgba(181,18,94,.07),transparent 62%),
+      radial-gradient(520px 320px at -6% 104%,rgba(34,36,40,.05),transparent 65%);
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(36px,5vw,76px);align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--magenta);letter-spacing:.01em}
+  .eyebrow::before{content:"";width:22px;height:1.5px;background:var(--magenta);flex:none}
+  .hero h1{
+    margin:22px 0 0;
+    font-size:clamp(40px,5.4vw,68px);
+    line-height:1.16;font-weight:800;letter-spacing:-.035em;
+  }
+  .hero h1 em{font-style:normal;position:relative;display:inline-block}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:-0.14em;height:7px;
+    background:rgba(181,18,94,.15);z-index:-1;
+  }
+  .hero-brand{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+  .hero-brand b{font-size:17px;font-weight:700;letter-spacing:-.01em}
+  .hero-brand b i{font-style:normal;color:var(--magenta)}
+  .hero-brand .dot{width:3px;height:3px;border-radius:50%;background:var(--line);flex:none}
+  .hero-brand span{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .hero p.lead{margin-top:22px;max-width:33em;color:var(--sub);font-size:clamp(16px,1.5vw,17.5px);line-height:1.8}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:54px;padding:0 26px;border-radius:2px;font-size:15.5px;font-weight:600;border:1px solid transparent;transition:.2s}
+  .btn svg{width:15px;height:15px;flex:none;transition:transform .2s}
+  .btn-primary{background:var(--magenta);color:#fff}
+  .btn-primary:hover{background:#96104e}
+  .btn-primary:hover svg{transform:translateX(3px)}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  .logo-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:2px;padding:clamp(26px,3.4vw,44px)}
+  .logo-card::before{content:"";position:absolute;left:-1px;top:-1px;width:56px;height:3px;background:var(--magenta)}
+  .logo-card .wr{width:100%;height:auto}
+  .logo-rule{height:1px;background:var(--soft);margin:clamp(20px,3vw,30px) 0 clamp(16px,2vw,22px)}
+  .logo-meta{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .logo-meta .en{color:var(--sub);font-size:10px;letter-spacing:.18em}
+  .logo-meta .place{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
+
+  .facts{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);margin-top:clamp(40px,5vw,64px);padding-top:26px}
+  .facts div{padding:0 22px;border-left:1px solid var(--soft)}
+  .facts div:first-child{padding-left:0;border-left:0}
+  .facts dt{font-size:11px;letter-spacing:.14em;color:var(--mute);font-weight:600;text-transform:uppercase}
+  .facts dd{margin:8px 0 0;font-size:15px;font-weight:600;line-height:1.55;letter-spacing:-.01em}
+  .facts dd small{display:block;font-size:12.5px;font-weight:500;color:var(--sub);letter-spacing:0;margin-top:2px}
+
+  /* ---------- section shell ---------- */
+  .section{padding:clamp(64px,9vw,124px) 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:flex-start;gap:clamp(16px,3vw,40px);flex-wrap:wrap;margin-bottom:clamp(36px,5vw,60px)}
+  .sec-num{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--magenta);padding-top:9px;flex:none}
+  .sec-titles{flex:1 1 320px}
+  .sec-titles h2{font-size:clamp(27px,3.4vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.25}
+  .sec-titles p{margin-top:12px;color:var(--sub);font-size:15.5px;max-width:44em}
+  .sec-side{flex:0 1 250px;margin-left:auto;text-align:right}
+  .sec-side .en{display:block;color:var(--mute)}
+
+  /* ---------- origin ---------- */
+  .origin{display:grid;grid-template-columns:220px 1fr;gap:clamp(20px,4vw,56px);align-items:start}
+  .origin .label{position:sticky;top:104px}
+  .origin .label .en{display:block;margin-top:8px}
+  .origin blockquote{margin:0;font-size:clamp(20px,2.3vw,27px);line-height:1.72;font-weight:600;letter-spacing:-.025em}
+  .origin blockquote strong{color:var(--magenta);font-weight:700}
+  .origin .note{margin-top:22px;color:var(--sub);font-size:15.5px;max-width:40em}
+  .dialect{margin-top:34px;border-left:2px solid var(--magenta);padding:6px 0 6px 20px;color:var(--sub);font-size:15px}
+  .dialect b{color:var(--ink);font-weight:600}
+
+  /* ---------- principles ---------- */
+  .principles{border-top:1px solid var(--line)}
+  .principle{display:grid;grid-template-columns:92px minmax(0,1fr) minmax(0,1.15fr);gap:clamp(16px,3vw,40px);padding:clamp(24px,3vw,34px) 0;border-bottom:1px solid var(--line);align-items:start;transition:background .2s}
+  .principle:hover{background:linear-gradient(90deg,rgba(181,18,94,.035),transparent 70%)}
+  .principle .no{font-size:13px;font-weight:700;letter-spacing:.16em;color:var(--mute);transition:color .2s}
+  .principle:hover .no{color:var(--magenta)}
+  .principle h3{font-size:clamp(19px,2vw,23px);font-weight:700;letter-spacing:-.02em;line-height:1.45}
+  .principle p{color:var(--sub);font-size:15.5px;line-height:1.8}
+  .flow{margin-top:14px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:12px;font-weight:600;color:var(--magenta);background:var(--pale);padding:7px 12px;border-radius:2px;letter-spacing:.02em}
+
+  /* ---------- lectures ---------- */
+  .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .card{background:#fff;padding:clamp(24px,3vw,34px);position:relative;transition:background .2s}
+  .card:nth-child(-n+3){grid-column:span 2}
+  .card:nth-child(n+4){grid-column:span 3}
+  .card:hover{background:#FCFBFB}
+  .card .no{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--magenta)}
+  .card h3{margin-top:14px;font-size:clamp(18px,1.9vw,21px);font-weight:700;letter-spacing:-.02em;line-height:1.45}
+  .card .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 8px;font-size:13.5px;color:var(--sub)}
+  .card .tags span{display:inline-block;padding:3px 9px;border:1px solid var(--soft);border-radius:2px;background:#FBFAF9}
+  .card::after{content:"";position:absolute;left:0;top:0;width:0;height:2px;background:var(--magenta);transition:width .3s}
+  .card:hover::after{width:100%}
+
+  /* ---------- clients ---------- */
+  .clients{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,5vw,72px);align-items:start}
+  .clients .intro p{color:var(--sub);font-size:15.5px;margin-top:14px;max-width:30em}
+  .audience{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+  .audience span{font-size:12.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:6px 11px;border-radius:2px;background:#FCFBFB}
+  .orgs{border-top:1px solid var(--ink)}
+  .orgs li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:clamp(16px,2vw,21px) 0;border-bottom:1px solid var(--line)}
+  .orgs .idx{font-size:11.5px;font-weight:700;color:var(--mute);letter-spacing:.1em}
+  .orgs .name{font-size:clamp(16.5px,1.8vw,19px);font-weight:600;letter-spacing:-.02em}
+  .orgs .kind{font-size:11.5px;font-weight:600;color:var(--sub);letter-spacing:.02em;border:1px solid var(--soft);background:var(--pale);padding:4px 9px;border-radius:2px;white-space:nowrap}
+
+  /* ---------- instructor ---------- */
+  .inst{background:#FAF9F8;border:1px solid var(--line);padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 300px;gap:clamp(28px,4vw,56px);align-items:center}
+  .inst .role{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--magenta);text-transform:uppercase}
+  .inst h3{margin-top:16px;font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.03em}
+  .inst .title{margin-top:8px;font-size:16px;font-weight:600;color:var(--ink)}
+  .inst p{margin-top:20px;color:var(--sub);font-size:15.5px;max-width:38em}
+  .inst .mark{border:1px solid var(--line);background:#fff;padding:clamp(18px,2.4vw,28px)}
+  .inst .mark .cap{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
+  .inst .mark .sig{margin-top:10px;font-size:26px;font-weight:800;letter-spacing:-.03em}
+  .inst .mark .sig::after{content:"";display:block;width:34px;height:2px;background:var(--magenta);margin-top:12px}
+  .inst .mark .en{display:block;margin-top:6px;font-size:10px;letter-spacing:.14em;color:var(--sub)}
+  .inst .mark ul{margin-top:18px;border-top:1px solid var(--soft);padding-top:14px;display:grid;gap:6px;font-size:13px;color:var(--sub)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--ink);color:#fff;padding:clamp(64px,9vw,120px) 0}
+  .contact .sec-num{color:#F06AA6}
+  .contact h2{font-size:clamp(30px,4.4vw,54px);font-weight:800;letter-spacing:-.035em;line-height:1.22;max-width:18em}
+  .contact .sub{margin-top:18px;color:#B9BCC2;font-size:16px;max-width:34em}
+  .contact-grid{margin-top:clamp(36px,5vw,60px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+  .contact-grid a,.contact-grid div{background:var(--ink);padding:clamp(22px,3vw,30px) clamp(16px,2.4vw,26px) clamp(26px,3vw,34px);display:block;transition:background .2s}
+  .contact-grid a:hover{background:#2C2F34}
+  .contact-grid .k{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8F949C;font-weight:600}
+  .contact-grid .v{display:block;margin-top:12px;font-size:clamp(17px,2vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.4}
+  .contact-grid .v small{display:block;font-size:12.5px;font-weight:500;color:#A9AEB6;letter-spacing:0;margin-top:6px}
+  .contact .foot-cta{margin-top:clamp(34px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+  .contact .foot-cta p{color:#B9BCC2;font-size:14.5px}
+  .contact .btn-primary{background:var(--magenta)}
+  .contact .btn-primary:hover{background:#cf2a74}
+
+  /* ---------- footer ---------- */
+  .site-foot{padding:34px 0;border-top:1px solid var(--line)}
+  .site-foot .in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+  .site-foot .brand svg{width:44px}
+  .site-foot .brand-txt b{font-size:14px}
+  .site-foot small{color:var(--mute);font-size:12.5px;letter-spacing:.01em}
+  .site-foot .links{display:flex;gap:18px;font-size:12.5px;color:var(--sub)}
+  .site-foot .links a:hover{color:var(--magenta)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .logo-card{max-width:520px}
+    .sec-side{margin-left:0;flex-basis:100%;margin-top:4px;text-align:left}
+    .inst{grid-template-columns:1fr}
+    .inst .mark{max-width:340px}
+    .clients{grid-template-columns:1fr}
+    .origin{grid-template-columns:1fr}
+    .origin .label{position:static}
+  }
+  @media (max-width:860px){
+    .nav{display:none}
+    .head-cta{display:none}
+    .menu-btn{display:flex}
+    .principle{grid-template-columns:58px minmax(0,1fr);gap:6px 14px}
+    .principle p{grid-column:2}
+    .principle .flow{grid-column:2;margin-bottom:4px}
+    .cards{grid-template-columns:1fr 1fr;background:var(--line)}
+    .card:nth-child(-n+3),.card:nth-child(n+4){grid-column:span 1}
+    .card:last-child{grid-column:span 2}
+    .facts{grid-template-columns:1fr;gap:18px;padding-top:22px}
+    .facts div{padding:0;border-left:0;border-top:1px solid var(--soft);padding-top:16px}
+    .facts div:first-child{border-top:0;padding-top:0}
+    .contact-grid{grid-template-columns:1fr}
+    .section{padding:clamp(52px,8vw,80px) 0}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .hero{padding-top:32px}
+    .cta-row .btn{width:100%}
+    .logo-card{padding:20px}
+    .hero-brand .dot{display:none}
+    .hero-brand span:last-child{flex-basis:100%}
+    .cards{grid-template-columns:1fr}
+    .card:last-child{grid-column:span 1}
+    .orgs li{grid-template-columns:34px minmax(0,1fr);row-gap:6px}
+    .orgs .kind{grid-column:2;justify-self:start}
+    .site-foot .in{flex-direction:column;align-items:flex-start}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="#top" aria-label="와랑 디지털 AI 교육센터 홈">
+      <svg viewBox="-8 -8 372 162" aria-hidden="true">
+        <g stroke-linecap="round" fill="none">
+          <line x1="53" y1="107" x2="63" y2="126" stroke="#222428" stroke-width="2.8"/>
+          <line x1="71" y1="123" x2="75" y2="116" stroke="#222428" stroke-width="2.8"/>
+          <line x1="117" y1="40" x2="125" y2="63" stroke="#222428" stroke-width="2.8"/>
+          <line x1="177" y1="87" x2="181" y2="78" stroke="#222428" stroke-width="2.8"/>
+          <line x1="187" y1="63" x2="190" y2="59" stroke="#222428" stroke-width="2.8"/>
+          <line x1="243" y1="23" x2="243" y2="50" stroke="#222428" stroke-width="2.8"/>
+          <line x1="253" y1="13" x2="262" y2="13" stroke="#222428" stroke-width="2.8"/>
+          <line x1="344" y1="52" x2="340" y2="58" stroke="#222428" stroke-width="2.8"/>
+          <line x1="329" y1="69" x2="321" y2="72" stroke="#222428" stroke-width="2.8"/>
+          <line x1="263" y1="72" x2="254" y2="72" stroke="#222428" stroke-width="2.8"/>
+          <line x1="244" y1="82" x2="243" y2="98" stroke="#222428" stroke-width="2.8"/>
+          <line x1="333" y1="116" x2="338" y2="124" stroke="#222428" stroke-width="2.8"/>
+          <line x1="20" y1="32" x2="51" y2="104" stroke="#222428" stroke-width="15.6"/>
+          <line x1="75" y1="113" x2="115" y2="34" stroke="#222428" stroke-width="15.6"/>
+          <line x1="126" y1="69" x2="147" y2="123" stroke="#222428" stroke-width="15.6"/>
+          <line x1="152" y1="126" x2="175" y2="90" stroke="#222428" stroke-width="15.6"/>
+          <line x1="271" y1="72" x2="313" y2="72" stroke="#222428" stroke-width="15.6"/>
+          <line x1="243" y1="104" x2="243" y2="131" stroke="#222428" stroke-width="15.6"/>
+          <line x1="309" y1="92" x2="332" y2="115" stroke="#222428" stroke-width="15.6"/>
+          <path d="M 271 12.5 L 326.5 12.5 A 18 18 0 0 1 344.5 30.5" stroke="#222428" stroke-width="15.6"/>
+          <line x1="344.5" y1="30.5" x2="344.5" y2="44" stroke="#222428" stroke-width="15.6"/>
+          <line x1="192" y1="54" x2="212" y2="5" stroke="#B5125E" stroke-width="15.6"/>
+        </g>
+        <g>
+          <circle cx="12" cy="13" r="9.8" fill="#222428"/>
+          <circle cx="67" cy="132" r="10" fill="#B5125E"/>
+          <circle cx="126" cy="67" r="9.9" fill="#222428"/>
+          <circle cx="184" cy="72" r="9.8" fill="#222428"/>
+          <circle cx="243" cy="13" r="9.8" fill="#222428"/>
+          <circle cx="244" cy="72" r="9.8" fill="#B5125E"/>
+          <circle cx="339" cy="68" r="10" fill="#B5125E"/>
+          <circle cx="344" cy="131" r="10.2" fill="#B5125E"/>
+        </g>
+      </svg>
+      <span class="brand-txt">
+        <b><i>와랑</i> 디지털 AI 교육센터</b>
+        <span>Warang Digital AI Edu Center</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#philosophy">교육 철학</a>
+      <a href="#lectures">강의 분야</a>
+      <a href="#clients">출강</a>
+      <a href="#instructor">대표 강사</a>
+      <a href="#contact">문의</a>
+    </nav>
+    <a class="head-cta" href="#contact">강의·컨설팅 문의</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#philosophy">교육 철학</a></li>
+      <li><a href="#lectures">강의 분야</a></li>
+      <li><a href="#clients">주요 출강</a></li>
+      <li><a href="#instructor">대표 강사</a></li>
+      <li><a href="#contact">강의·컨설팅 문의</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">생각을 깨우는 AI융합교육센터</p>
+          <h1>생각을 깨우다,<br><em>AI로 연결하다.</em></h1>
+          <div class="hero-brand">
+            <b><i>와랑</i> 디지털 AI 교육센터</b>
+            <span class="dot" aria-hidden="true"></span>
+            <span>Warang Digital AI Edu Center</span>
+          </div>
+          <p class="lead">AI는 사람을 대신하는 기술이 아니라, 사람의 생각을 더 멀리 데려가는 도구입니다. 와랑은 제주에서 사람 중심의 AI·디지털 교육을 설계하고, 배움이 창작과 기록으로 이어지도록 돕습니다.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">강의·컨설팅 문의하기
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#lectures">강의 분야 보기</a>
+          </div>
+        </div>
+
+        <div class="logo-card">
+          <svg class="wr" viewBox="-8 -8 372 162" role="img" aria-label="와랑 WR 노드 로고">
+            <g stroke-linecap="round" fill="none">
+              <line x1="53" y1="107" x2="63" y2="126" stroke="#222428" stroke-width="2.8"/>
+              <line x1="71" y1="123" x2="75" y2="116" stroke="#222428" stroke-width="2.8"/>
+              <line x1="117" y1="40" x2="125" y2="63" stroke="#222428" stroke-width="2.8"/>
+              <line x1="177" y1="87" x2="181" y2="78" stroke="#222428" stroke-width="2.8"/>
+              <line x1="187" y1="63" x2="190" y2="59" stroke="#222428" stroke-width="2.8"/>
+              <line x1="243" y1="23" x2="243" y2="50" stroke="#222428" stroke-width="2.8"/>
+              <line x1="253" y1="13" x2="262" y2="13" stroke="#222428" stroke-width="2.8"/>
+              <line x1="344" y1="52" x2="340" y2="58" stroke="#222428" stroke-width="2.8"/>
+              <line x1="329" y1="69" x2="321" y2="72" stroke="#222428" stroke-width="2.8"/>
+              <line x1="263" y1="72" x2="254" y2="72" stroke="#222428" stroke-width="2.8"/>
+              <line x1="244" y1="82" x2="243" y2="98" stroke="#222428" stroke-width="2.8"/>
+              <line x1="333" y1="116" x2="338" y2="124" stroke="#222428" stroke-width="2.8"/>
+              <line x1="20" y1="32" x2="51" y2="104" stroke="#222428" stroke-width="15.6"/>
+              <line x1="75" y1="113" x2="115" y2="34" stroke="#222428" stroke-width="15.6"/>
+              <line x1="126" y1="69" x2="147" y2="123" stroke="#222428" stroke-width="15.6"/>
+              <line x1="152" y1="126" x2="175" y2="90" stroke="#222428" stroke-width="15.6"/>
+              <line x1="271" y1="72" x2="313" y2="72" stroke="#222428" stroke-width="15.6"/>
+              <line x1="243" y1="104" x2="243" y2="131" stroke="#222428" stroke-width="15.6"/>
+              <line x1="309" y1="92" x2="332" y2="115" stroke="#222428" stroke-width="15.6"/>
+              <path d="M 271 12.5 L 326.5 12.5 A 18 18 0 0 1 344.5 30.5" stroke="#222428" stroke-width="15.6"/>
+              <line x1="344.5" y1="30.5" x2="344.5" y2="44" stroke="#222428" stroke-width="15.6"/>
+              <line x1="192" y1="54" x2="212" y2="5" stroke="#B5125E" stroke-width="15.6"/>
+            </g>
+            <g>
+              <circle cx="12" cy="13" r="9.8" fill="#222428"/>
+              <circle cx="67" cy="132" r="10" fill="#B5125E"/>
+              <circle cx="126" cy="67" r="9.9" fill="#222428"/>
+              <circle cx="184" cy="72" r="9.8" fill="#222428"/>
+              <circle cx="243" cy="13" r="9.8" fill="#222428"/>
+              <circle cx="244" cy="72" r="9.8" fill="#B5125E"/>
+              <circle cx="339" cy="68" r="10" fill="#B5125E"/>
+              <circle cx="344" cy="131" r="10.2" fill="#B5125E"/>
+            </g>
+          </svg>
+          <div class="logo-rule" aria-hidden="true"></div>
+          <div class="logo-meta">
+            <span class="en">Warang Digital AI Edu Center</span>
+            <span class="place">Jeju · Korea</span>
+          </div>
+        </div>
+      </div>
+
+      <dl class="facts">
+        <div>
+          <dt>Philosophy</dt>
+          <dd>교육 철학 5원칙<small>사람 중심 AI, 기록과 윤리, 창작</small></dd>
+        </div>
+        <div>
+          <dt>Lecture Fields</dt>
+          <dd>5개 강의 영역<small>생성형 AI부터 AI 아티스트까지</small></dd>
+        </div>
+        <div>
+          <dt>Programs</dt>
+          <dd>맞춤형 출강<small>공공기관 · 기업 · 청년 · 시니어 · 학교</small></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="philosophy">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <div class="sec-titles">
+          <h2>와랑의 교육 철학</h2>
+          <p>기술을 가르치는 일보다, 기술 앞에서 사람이 중심에 서는 일을 먼저 생각합니다.</p>
+        </div>
+        <div class="sec-side"><span class="en">Philosophy · Five Principles</span></div>
+      </div>
+
+      <div class="origin">
+        <div class="label">
+          <span class="sec-num" style="padding-top:0">출발점</span>
+          <span class="en">Origin of the Name</span>
+        </div>
+        <div>
+          <blockquote>와랑은 제주 방언 <strong>“와랑와랑하다”</strong>에서 착안한 이름입니다. 불기운이 급격히 일어나거나, 사람이 힘차게 달리는 상태를 뜻합니다.</blockquote>
+          <p class="note">와랑은 이 ‘깨어나는 기운’을 배움의 시작점으로 정의합니다.</p>
+          <p class="dialect"><b>제주 방언 · 와랑와랑하다</b> — 무언가가 힘차게 일어나고, 사람이 앞으로 달려 나가는 순간의 기운.</p>
+        </div>
+      </div>
+
+      <div class="principles" style="margin-top:clamp(44px,6vw,72px)">
+        <article class="principle">
+          <span class="no">01</span>
+          <h3>사람 중심 AI</h3>
+          <p>AI는 목적이 아니라 도구입니다. 와랑은 기술보다 사람의 사고와 감수성을 우선합니다.</p>
+        </article>
+        <article class="principle">
+          <span class="no">02</span>
+          <h3>기록의 교육</h3>
+          <p>4·3, 해녀, 남방큰고래, 지역 이야기 등 사라질 수 있는 가치들을 AI로 기록하고 재해석하는 교육을 지향합니다.</p>
+        </article>
+        <article class="principle">
+          <span class="no">03</span>
+          <h3>윤리 기반 활용</h3>
+          <p>디지털 시민성, 생성형 AI의 책임, 저작권과 정보 신뢰성 등 디지털 윤리 교육을 필수 축으로 둡니다.</p>
+        </article>
+        <article class="principle">
+          <span class="no">04</span>
+          <h3>창작으로 완성하는 배움</h3>
+          <p>배움은 이론에서 끝나지 않습니다. 결과물은 굿즈·전시·영상·AI 아트로 연결됩니다.
+            <span class="flow">교육 → 창작 → 전시 → 사회 환류</span>
+          </p>
+        </article>
+        <article class="principle">
+          <span class="no">05</span>
+          <h3>지역과 미래의 연결</h3>
+          <p>제주의 역사와 문화는 미래 기술과 만날 때 새로운 가치를 가집니다. 와랑은 지역 기반 미래교육을 지향합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lectures">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <div class="sec-titles">
+          <h2>강의 분야</h2>
+          <p>생성형 AI 활용부터 업무 효율화, 콘텐츠 제작, AI 아티스트 양성, 기관·학교 출강까지 — 수업은 대상과 현장에 맞춰 설계합니다.</p>
+        </div>
+        <div class="sec-side"><span class="en">Lecture Fields</span></div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="no">01</span>
+          <h3>AI · 디지털 교육 전문</h3>
+          <div class="tags"><span>생성형 AI</span></div>
+        </article>
+        <article class="card">
+          <span class="no">02</span>
+          <h3>업무효율화</h3>
+          <div class="tags"><span>AI 영상제작</span><span>영상편집</span><span>굿즈</span><span>디지털 AI 아티스트</span></div>
+        </article>
+        <article class="card">
+          <span class="no">03</span>
+          <h3>디지털 콘텐츠</h3>
+          <div class="tags"><span>캔바</span><span>미리캔버스</span><span>SNS</span><span>블로그</span><span>인스타그램</span></div>
+        </article>
+        <article class="card">
+          <span class="no">04</span>
+          <h3>AI 아티스트 데뷔과정</h3>
+          <div class="tags"><span>AI 강사 양성과정</span></div>
+        </article>
+        <article class="card">
+          <span class="no">05</span>
+          <h3>1:1 · 소그룹</h3>
+          <div class="tags"><span>기관 출강</span><span>학교 출강</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="clients">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <div class="sec-titles">
+          <h2>주요 출강 &amp; 교육 대상</h2>
+          <p>공공기관·기업·청년·시니어·학교의 상황에 맞춘 맞춤형 출강을 진행합니다.</p>
+        </div>
+        <div class="sec-side"><span class="en">Clients &amp; Programs</span></div>
+      </div>
+
+      <div class="clients">
+        <div class="intro">
+          <p class="eyebrow" style="font-size:12.5px">맞춤형 출강</p>
+          <p>대상의 눈높이와 현장의 목적에 맞춰 커리큘럼을 설계합니다. 첫 수업부터 결과물이 남는 수업까지, 필요한 만큼 함께합니다.</p>
+          <div class="audience">
+            <span>공공기관</span><span>기업</span><span>청년</span><span>시니어</span><span>학교</span>
+          </div>
+        </div>
+        <ul class="orgs">
+          <li><span class="idx">01</span><span class="name">국토교통인재개발원</span><span class="kind">공공기관</span></li>
+          <li><span class="idx">02</span><span class="name">서귀포시 청년지원센터</span><span class="kind">청년</span></li>
+          <li><span class="idx">03</span><span class="name">제주중장년내일센터</span><span class="kind">중장년</span></li>
+          <li><span class="idx">04</span><span class="name">디지털배움터</span><span class="kind">지역 디지털교육</span></li>
+          <li><span class="idx">05</span><span class="name">한림여자중학교</span><span class="kind">학교</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="instructor">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <div class="sec-titles">
+          <h2>대표 강사</h2>
+          <p>기술을 가르치는 사람이 아니라, 배우는 사람 곁에 서는 사람.</p>
+        </div>
+        <div class="sec-side"><span class="en">Founder &amp; Instructor</span></div>
+      </div>
+
+      <div class="inst">
+        <div>
+          <p class="role">Founder</p>
+          <h3>곽도연</h3>
+          <p class="title">와랑 디지털 AI 교육센터 대표 · AI융합교육 강사</p>
+          <p>제주를 기반으로 공공기관·기업·학교·청년·시니어를 만나며 AI·디지털 교육을 진행해 왔습니다. 생성형 AI 활용, AI 영상 제작, 콘텐츠 제작, AI 아티스트 양성까지 — 수업의 끝에는 언제나 수강생의 결과물이 남습니다.</p>
+          <p>수업은 늘 결과물로 끝납니다. 카드뉴스, 영상, 굿즈, AI 아트처럼 손에 잡히는 결과물을 함께 만들고, 그 과정에서 AI를 책임 있게 쓰는 법을 익힙니다.</p>
+        </div>
+        <div class="mark">
+          <span class="cap">Warang Digital AI Edu Center</span>
+          <div class="sig">곽도연</div>
+          <span class="en">Representative · AI Convergence Instructor</span>
+          <ul>
+            <li>기관·학교·청년·시니어 맞춤 출강</li>
+            <li>생성형 AI · AI 영상 · 디지털 콘텐츠</li>
+            <li>AI 강사 양성 · 1:1 · 소그룹</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="sec-num">05 · Contact</span>
+      <h2>강의와 컨설팅,<br>와랑에 문의하세요.</h2>
+      <p class="sub">기관·학교·기업 교육, 강사 양성, 콘텐츠 제작까지. 일정과 대상, 목적을 알려 주시면 맞춰 설계해 드립니다.</p>
+
+      <div class="contact-grid">
+        <a href="tel:01039006333">
+          <span class="k">Phone</span>
+          <span class="v">010-3900-6333<small>전화로 바로 문의</small></span>
+        </a>
+        <a href="mailto:edu@warangai.kr">
+          <span class="k">E-mail</span>
+          <span class="v">edu@warangai.kr<small>강의·컨설팅 문의</small></span>
+        </a>
+        <div>
+          <span class="k">Website</span>
+          <span class="v">warangai.kr<small>와랑 디지털 AI 교육센터</small></span>
+        </div>
+      </div>
+
+      <div class="foot-cta">
+        <p>생각을 깨우는 AI융합교육센터 · 와랑 디지털 AI 교육센터</p>
+        <a class="btn btn-primary" href="mailto:edu@warangai.kr?subject=%5B%EA%B0%95%EC%9D%98%20%EB%AC%B8%EC%9D%98%5D%20%EC%99%80%EB%9E%91%20%EB%94%94%EC%A7%80%ED%84%B8%20AI%20%EA%B5%90%EC%9C%A1%EC%84%BC%ED%84%B0">
+          이메일로 문의하기
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap in">
+    <div class="brand">
+      <svg viewBox="-8 -8 372 162" aria-hidden="true">
+        <g stroke-linecap="round" fill="none">
+          <line x1="20" y1="32" x2="51" y2="104" stroke="#222428" stroke-width="15.6"/>
+          <line x1="75" y1="113" x2="115" y2="34" stroke="#222428" stroke-width="15.6"/>
+          <line x1="126" y1="69" x2="147" y2="123" stroke="#222428" stroke-width="15.6"/>
+          <line x1="152" y1="126" x2="175" y2="90" stroke="#222428" stroke-width="15.6"/>
+          <line x1="271" y1="72" x2="313" y2="72" stroke="#222428" stroke-width="15.6"/>
+          <line x1="243" y1="104" x2="243" y2="131" stroke="#222428" stroke-width="15.6"/>
+          <line x1="309" y1="92" x2="332" y2="115" stroke="#222428" stroke-width="15.6"/>
+          <path d="M 271 12.5 L 326.5 12.5 A 18 18 0 0 1 344.5 30.5" stroke="#222428" stroke-width="15.6"/>
+          <line x1="344.5" y1="30.5" x2="344.5" y2="44" stroke="#222428" stroke-width="15.6"/>
+          <line x1="192" y1="54" x2="212" y2="5" stroke="#B5125E" stroke-width="15.6"/>
+        </g>
+        <g>
+          <circle cx="12" cy="13" r="9.8" fill="#222428"/>
+          <circle cx="67" cy="132" r="10" fill="#B5125E"/>
+          <circle cx="126" cy="67" r="9.9" fill="#222428"/>
+          <circle cx="184" cy="72" r="9.8" fill="#222428"/>
+          <circle cx="243" cy="13" r="9.8" fill="#222428"/>
+          <circle cx="244" cy="72" r="9.8" fill="#B5125E"/>
+          <circle cx="339" cy="68" r="10" fill="#B5125E"/>
+          <circle cx="344" cy="131" r="10.2" fill="#B5125E"/>
+        </g>
+      </svg>
+      <span class="brand-txt"><b><i>와랑</i> 디지털 AI 교육센터</b><span>Warang Digital AI Edu Center</span></span>
+    </div>
+    <div class="links">
+      <a href="tel:01039006333">010-3900-6333</a>
+      <a href="mailto:edu@warangai.kr">edu@warangai.kr</a>
+      <a href="#top">맨 위로</a>
+    </div>
+    <small>© 2026 와랑 디지털 AI 교육센터. All rights reserved.</small>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var btn=document.getElementById('menuBtn'),nav=document.getElementById('mobileNav');
+    if(!btn||!nav)return;
+    btn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+    });
+  })();
+</script>
+</body>
+</html>
