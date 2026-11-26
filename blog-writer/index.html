@@ -215,9 +215,273 @@ footer.foot b{ color:var(--sub)}
   .brand em{display:none}
   #preview{padding:18px 14px 20px}
 }
+
+/* ── 수강생용 비밀번호 잠금 ── */
+body.lock-on{overflow:hidden}
+body.lock-on header.top,body.lock-on .wrap,body.lock-on footer.foot{visibility:hidden}
+.gate{position:fixed;inset:0;z-index:900;display:flex;align-items:center;justify-content:center;
+  padding:24px 18px;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));overflow-y:auto;
+  background:
+    radial-gradient(900px 520px at 8% -8%,#FBE7DD 0%,rgba(246,242,234,0) 62%),
+    radial-gradient(760px 460px at 104% 108%,#E7EAF2 0%,rgba(246,242,234,0) 58%),
+    var(--paper)}
+.gate[hidden]{display:none}
+.gate-card{position:relative;width:100%;max-width:392px;background:var(--card);border:1px solid var(--line);
+  border-radius:22px;padding:30px 26px 20px;text-align:center;
+  box-shadow:0 30px 70px -30px rgba(15,23,42,.34),0 1px 0 rgba(40,30,15,.03);
+  animation:gateIn .42s var(--ease) both}
+@keyframes gateIn{from{opacity:0;transform:translateY(14px) scale(.986)}to{opacity:1;transform:none}}
+.gate-card.shake{animation:gateShake .44s var(--ease)}
+@keyframes gateShake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}
+  30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+.gate-badge{width:54px;height:54px;margin:0 auto 14px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(155deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;
+  box-shadow:0 10px 22px -10px rgba(15,23,42,.6)}
+.gate-badge svg{width:25px;height:25px;display:block}
+.gate-kicker{margin:0 0 7px;font-size:11.5px;font-weight:700;letter-spacing:.03em;color:var(--accent)}
+.gate-card h1{margin:0 0 8px;font-size:19.5px;line-height:1.38;color:var(--navy);letter-spacing:-.5px}
+.gate-sub{margin:0 0 19px;font-size:13px;line-height:1.62;color:var(--sub)}
+.gate-field{position:relative;margin:0 0 6px}
+.gate-field input{width:100%;border:1px solid var(--line);background:#FFFDF9;border-radius:13px;
+  padding:13px 48px 13px 15px;font-size:16px;line-height:1.4;outline:none;
+  transition:border-color .18s,box-shadow .18s,background .18s}
+.gate-field input::placeholder{font-size:14px;color:#B0A795}
+.gate-field input:focus{border-color:#EFC9B6;box-shadow:0 0 0 3px rgba(217,112,74,.13);background:#fff}
+.gate-field.bad input{border-color:#E2A49B;background:#FFFAF9;box-shadow:0 0 0 3px rgba(200,55,45,.11)}
+.gate-eye{position:absolute;top:50%;right:5px;transform:translateY(-50%);width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;border:0;background:none;border-radius:10px;
+  cursor:pointer;color:#9A9283;transition:background .16s,color .16s}
+.gate-eye:hover{background:#F3EEE4;color:var(--navy)}
+.gate-eye svg{width:19px;height:19px;display:block}
+.gate-eye .ico-off{display:none}
+.gate-eye.on .ico-on{display:none}
+.gate-eye.on .ico-off{display:block}
+.gate-note{margin:0 0 2px;font-size:11.5px;line-height:1.5;color:#A8A093;text-align:left}
+.gate-err{min-height:17px;margin:0 0 10px;font-size:12.5px;font-weight:700;line-height:1.4;color:var(--warn);text-align:left}
+.gate-btn{width:100%;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:13px;
+  padding:13px 18px;font-size:15.5px;font-weight:700;cursor:pointer;
+  box-shadow:0 10px 22px -12px rgba(217,112,74,.9);
+  transition:transform .12s var(--ease),background .18s,border-color .18s}
+.gate-btn:hover{background:#C9603C;border-color:#C9603C}
+.gate-btn:active{transform:scale(.988)}
+.gate-btn[disabled]{opacity:.6;cursor:progress}
+.gate-foot{margin:15px 0 0;font-size:11.5px;line-height:1.6;color:#A8A093}
+@media(max-width:520px){
+  .gate{padding:20px 16px}
+  .gate-card{padding:26px 20px 18px;border-radius:20px}
+  .gate-card h1{font-size:18px}
+  .gate-sub{font-size:12.5px}
+}
+@media(max-height:540px){.gate{align-items:flex-start}.gate-card{margin:auto 0}}
 </style>
 </head>
-<body>
+<body class="lock-on">
+
+<!-- ══════════ 수강생용 비밀번호 잠금 ══════════ -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-sub">
+  <div class="gate-card" id="gate-card">
+    <div class="gate-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4.5" y="10.2" width="15" height="10.3" rx="2.6"></rect>
+        <path d="M8.2 10.2V7.6a3.8 3.8 0 0 1 7.6 0v2.6"></path>
+        <circle cx="12" cy="15.3" r="1.35" fill="currentColor" stroke="none"></circle>
+      </svg>
+    </div>
+    <p class="gate-kicker">와랑 AEO 블로그 스튜디오</p>
+    <h1 id="gate-title">수강생 전용 페이지입니다</h1>
+    <p class="gate-sub" id="gate-sub">수업에서 안내받은 비밀번호를 입력해 주세요.</p>
+    <form id="gate-form" autocomplete="off" novalidate>
+      <div class="gate-field" id="gate-field">
+        <input id="gate-pw" type="password" inputmode="text" autocomplete="off" enterkeyhint="go"
+               autocapitalize="off" autocorrect="off" spellcheck="false"
+               placeholder="비밀번호" aria-label="비밀번호" maxlength="32">
+        <button type="button" class="gate-eye" id="gate-eye" aria-label="비밀번호 보기" aria-pressed="false">
+          <svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.2 12S5.6 5.6 12 5.6 21.8 12 21.8 12 18.4 18.4 12 18.4 2.2 12 2.2 12z"></path>
+            <circle cx="12" cy="12" r="2.9"></circle>
+          </svg>
+          <svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.2 12S5.6 5.6 12 5.6 21.8 12 21.8 12 18.4 18.4 12 18.4 2.2 12 2.2 12z"></path>
+            <circle cx="12" cy="12" r="2.9"></circle>
+            <path d="M3.6 3.6l16.8 16.8"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="gate-note">영문은 대소문자를 구분합니다.</p>
+      <p class="gate-err" id="gate-err" role="alert"></p>
+      <button type="submit" class="gate-btn" id="gate-go">입장하기</button>
+    </form>
+    <p class="gate-foot">© 와랑디지털AI교육센터 · 수강생 배포용</p>
+  </div>
+</div>
+
+<script>
+/* ══════════════ 수강생용 비밀번호 잠금 ══════════════ */
+(function(){
+  "use strict";
+  var STORE_KEY = 'warangBlogStudio.gate.v1';
+  var PW_HASH = '4b5bc7396f866613d58534c6f35f95d5feffe6579971e00b6408bda93db28c51';   /* SHA-256("비밀번호") — 소스에는 평문을 두지 않음 */
+  var gate   = document.getElementById('gate');
+  var card   = document.getElementById('gate-card');
+  var form   = document.getElementById('gate-form');
+  var field  = document.getElementById('gate-field');
+  var input  = document.getElementById('gate-pw');
+  var errEl  = document.getElementById('gate-err');
+  var eyeBtn = document.getElementById('gate-eye');
+  var goBtn  = document.getElementById('gate-go');
+  if (!gate || !card || !form || !input) return;
+
+  /* ── SHA-256 (crypto.subtle 우선, 없으면 순수 JS) ── */
+  var K = [
+    0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  function rotr(x, n){ return (x >>> n) | (x << (32 - n)); }
+  function utf8Bytes(str){
+    var out = [], i, c, d, cp;
+    for (i = 0; i < str.length; i++){
+      c = str.charCodeAt(i);
+      if (c < 0x80) out.push(c);
+      else if (c < 0x800) out.push(0xC0 | (c >> 6), 0x80 | (c & 63));
+      else if (c >= 0xD800 && c <= 0xDBFF && i + 1 < str.length &&
+               ((d = str.charCodeAt(i + 1)) & 0xFC00) === 0xDC00){
+        cp = 0x10000 + ((c - 0xD800) << 10) + (d - 0xDC00);
+        i++;
+        out.push(0xF0 | (cp >> 18), 0x80 | ((cp >> 12) & 63), 0x80 | ((cp >> 6) & 63), 0x80 | (cp & 63));
+      } else out.push(0xE0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    }
+    return out;
+  }
+  function sha256Js(str){
+    var bytes = utf8Bytes(str), bitLen = bytes.length * 8, i, j;
+    bytes.push(0x80);
+    while (bytes.length % 64 !== 56) bytes.push(0);
+    var hi = Math.floor(bitLen / 4294967296), lo = bitLen >>> 0;
+    bytes.push((hi >>> 24) & 255, (hi >>> 16) & 255, (hi >>> 8) & 255, hi & 255,
+               (lo >>> 24) & 255, (lo >>> 16) & 255, (lo >>> 8) & 255, lo & 255);
+    var H = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+    var w = new Array(64);
+    for (var off = 0; off < bytes.length; off += 64){
+      for (i = 0; i < 16; i++){
+        j = off + i * 4;
+        w[i] = (bytes[j] << 24) | (bytes[j + 1] << 16) | (bytes[j + 2] << 8) | bytes[j + 3];
+      }
+      for (i = 16; i < 64; i++){
+        var s0 = rotr(w[i - 15], 7) ^ rotr(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+        var s1 = rotr(w[i - 2], 17) ^ rotr(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+        w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+      }
+      var a = H[0], b = H[1], c2 = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (i = 0; i < 64; i++){
+        var S1 = rotr(e, 6) ^ rotr(e, 11) ^ rotr(e, 25);
+        var ch = (e & f) ^ (~e & g);
+        var t1 = (h + S1 + ch + K[i] + w[i]) | 0;
+        var S0 = rotr(a, 2) ^ rotr(a, 13) ^ rotr(a, 22);
+        var maj = (a & b) ^ (a & c2) ^ (b & c2);
+        var t2 = (S0 + maj) | 0;
+        h = g; g = f; f = e; e = (d + t1) | 0;
+        d = c2; c2 = b; b = a; a = (t1 + t2) | 0;
+      }
+      H[0] = (H[0] + a) | 0; H[1] = (H[1] + b) | 0; H[2] = (H[2] + c2) | 0; H[3] = (H[3] + d) | 0;
+      H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+    }
+    return H.map(function(x){ return ('00000000' + (x >>> 0).toString(16)).slice(-8); }).join('');
+  }
+  function sha256Hex(str){
+    try {
+      var subtle = window.crypto && window.crypto.subtle;
+      if (subtle && window.TextEncoder){
+        return subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function(buf){
+          var arr = new Uint8Array(buf), out = '';
+          for (var i = 0; i < arr.length; i++) out += ('0' + arr[i].toString(16)).slice(-2);
+          return out;
+        });
+      }
+    } catch (e) { /* 아래 fallback 사용 */ }
+    return Promise.resolve(sha256Js(str));
+  }
+
+  /* ── 상태 저장 (탭을 닫을 때까지 유지) ── */
+  window.__warangGate = { sha256Js: sha256Js, test: function(){ return sha256Hex.apply(null, arguments); }, hash: PW_HASH };
+  function alreadyOpen(){
+    try { return window.sessionStorage.getItem(STORE_KEY) === PW_HASH; } catch (e) { return false; }
+  }
+  function markOpen(){
+    try { window.sessionStorage.setItem(STORE_KEY, PW_HASH); } catch (e) {}
+  }
+
+  function focusInput(){
+    try { input.focus({ preventScroll: true }); } catch (e) { try { input.focus(); } catch (e2) {} }
+  }
+  function unlock(){
+    markOpen();
+    input.value = '';
+    input.type = 'password';
+    if (eyeBtn) { eyeBtn.classList.remove('on'); eyeBtn.setAttribute('aria-pressed', 'false'); }
+    errEl.textContent = '';
+    field.classList.remove('bad');
+    gate.hidden = true;
+    gate.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lock-on');
+  }
+  function fail(msg){
+    errEl.textContent = msg;
+    field.classList.add('bad');
+    card.classList.remove('shake');
+    void card.offsetWidth;
+    card.classList.add('shake');
+    setTimeout(function(){ card.classList.remove('shake'); }, 600);
+    focusInput();
+    try { input.select(); } catch (e) {}
+  }
+
+  input.addEventListener('input', function(){
+    if (errEl.textContent) { errEl.textContent = ''; field.classList.remove('bad'); }
+  });
+
+  if (eyeBtn){
+    eyeBtn.addEventListener('click', function(){
+      var show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      eyeBtn.classList.toggle('on', show);
+      eyeBtn.setAttribute('aria-pressed', show ? 'true' : 'false');
+      eyeBtn.setAttribute('aria-label', show ? '비밀번호 가리기' : '비밀번호 보기');
+      focusInput();
+      var v = input.value;
+      if (show) { input.value = v; }
+    });
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var value = String(input.value || '').replace(/\s+/g, '');
+    if (!value){ fail('비밀번호를 입력해 주세요.'); return; }
+    if (goBtn) goBtn.disabled = true;
+    sha256Hex(value).then(function(hex){
+      if (goBtn) goBtn.disabled = false;
+      if (hex === PW_HASH) unlock();
+      else fail('비밀번호가 맞지 않습니다. 다시 확인해 주세요.');
+    }, function(){
+      if (goBtn) goBtn.disabled = false;
+      fail('잠금을 확인하지 못했습니다. 새로고침한 뒤 다시 시도해 주세요.');
+    });
+  });
+
+  if (alreadyOpen()){
+    unlock();
+  } else {
+    gate.hidden = false;
+    gate.setAttribute('aria-hidden', 'false');
+    focusInput();
+    setTimeout(focusInput, 120);
+  }
+})();
+</script>
 
 <header class="top">
   <div class="top-in">
