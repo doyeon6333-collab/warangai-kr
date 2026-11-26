@@ -232,6 +232,31 @@
   .member .mtags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding:16px 0 0;border-top:1px solid var(--soft);list-style:none}
   .member .mtags li{font-size:11.5px;font-weight:600;color:var(--sub);border:1px solid var(--soft);background:#FCFBFB;padding:4px 9px;border-radius:2px;white-space:nowrap}
 
+  /* ---------- student zone ---------- */
+  .student{background:#FBFAF9}
+  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .tool{position:relative;display:flex;flex-direction:column;background:#fff;padding:clamp(24px,3vw,32px)}
+  .tool::before{content:"";position:absolute;left:-1px;top:-1px;width:56px;height:3px;background:var(--magenta)}
+  .tool-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .tool-no{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+  .tool-lock{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.01em;color:var(--magenta);background:#FDF3F7;border:1px solid #EFC9DA;border-radius:2px;padding:4px 8px;white-space:nowrap}
+  .tool h3{margin:18px 0 0;font-size:clamp(19px,2vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.4}
+  .tool .tool-en{display:block;margin-top:7px;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+  .tool p{margin:14px 0 0;font-size:14.5px;color:var(--sub);line-height:1.75}
+  .tool-feat{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
+  .tool-feat li{font-size:11.5px;font-weight:600;color:var(--sub);border:1px solid var(--soft);background:#FCFBFB;padding:4px 9px;border-radius:2px;white-space:nowrap}
+  .tool-btn{margin:22px 0 0;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:50px;padding:0 22px;border-radius:2px;background:var(--magenta);color:#fff;font-size:15px;font-weight:600;transition:background .2s}
+  .tool-btn:hover{background:#96104e}
+  .tool-btn svg{width:15px;height:15px;flex:none;transition:transform .2s}
+  .tool-btn:hover svg{transform:translateX(3px)}
+  .tool.guide{background:#FCFBFB}
+  .steps{margin:18px 0 0;display:grid;gap:12px}
+  .steps li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;font-size:14px;color:var(--sub);line-height:1.65}
+  .steps b{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--magenta);padding-top:3px}
+  .tool-foot{margin-top:auto;padding-top:18px;border-top:1px solid var(--soft);font-size:12.5px;line-height:1.6;color:var(--mute)}
+  .tool-foot a{color:var(--sub);border-bottom:1px solid var(--line);transition:.2s}
+  .tool-foot a:hover{color:var(--magenta);border-color:var(--magenta)}
+
   /* ---------- contact ---------- */
   .contact{background:var(--ink);color:#fff;padding:clamp(64px,9vw,120px) 0}
   .contact .sec-num{color:#F06AA6}
@@ -258,6 +283,11 @@
   .site-foot .links a:hover{color:var(--magenta)}
 
   /* ---------- responsive ---------- */
+  @media (max-width:1080px){
+    .nav{gap:20px}
+    .nav a{font-size:14px}
+    .head-cta{padding:10px 16px;font-size:14px}
+  }
   @media (max-width:1000px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .logo-card{max-width:520px}
@@ -362,6 +392,7 @@
       <a href="#lectures">강의 분야</a>
       <a href="#clients">출강</a>
       <a href="#instructor">대표 강사</a>
+      <a href="#student-zone">수강생 전용</a>
       <a href="#contact">문의</a>
     </nav>
     <a class="head-cta" href="#contact">강의·컨설팅 문의</a>
@@ -373,6 +404,7 @@
       <li><a href="#lectures">강의 분야</a></li>
       <li><a href="#clients">주요 출강</a></li>
       <li><a href="#instructor">대표 강사</a></li>
+      <li><a href="#student-zone">수강생 전용</a></li>
       <li><a href="#contact">강의·컨설팅 문의</a></li>
     </ul>
   </div>
@@ -641,9 +673,57 @@
     </div>
   </section>
 
+  <section class="section student" id="student-zone">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <div class="sec-titles">
+          <h2>수강생 전용</h2>
+          <p>수업에 참여하신 분들께 제공하는 전용 실습 도구입니다. 입장 시 수업에서 안내받은 비밀번호가 필요합니다.</p>
+        </div>
+        <div class="sec-side"><span class="en">Student Zone · Class Tools</span></div>
+      </div>
+
+      <div class="tools">
+        <article class="tool">
+          <div class="tool-top">
+            <span class="tool-no">Tool 01</span>
+            <span class="tool-lock"><span aria-hidden="true">🔒</span> 수강생 비밀번호 필요</span>
+          </div>
+          <h3>와랑 AEO 블로그 스튜디오</h3>
+          <span class="tool-en">Naver Blog Writer · AEO</span>
+          <p>네이버 블로그에 그대로 붙여 넣는 글 작성기입니다. 주제만 정하면 AEO 프롬프트를 만들어 드리고, 완성한 글은 네이버 서식 그대로 복사할 수 있습니다.</p>
+          <ul class="tool-feat">
+            <li>주제 → AEO 프롬프트</li>
+            <li>네이버 서식 복사</li>
+            <li>사진 파일명 정리</li>
+          </ul>
+          <a class="tool-btn" href="/blog-writer/">실습 도구 열기
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </article>
+
+        <article class="tool guide">
+          <div class="tool-top">
+            <span class="tool-no">Guide</span>
+            <span class="tool-lock" style="color:var(--sub);border-color:var(--line);background:var(--pale)">입장 안내</span>
+          </div>
+          <h3>이렇게 들어갑니다</h3>
+          <span class="tool-en">How to Enter</span>
+          <ol class="steps">
+            <li><b>01</b><span>수업에서 안내받은 비밀번호를 준비합니다.</span></li>
+            <li><b>02</b><span>사용할 도구의 <strong>실습 도구 열기</strong>를 누릅니다.</span></li>
+            <li><b>03</b><span>잠금 화면에 비밀번호를 입력하면 바로 사용할 수 있습니다.</span></li>
+          </ol>
+          <p class="tool-foot">비밀번호를 잊으셨다면 <a href="mailto:edu@warangai.kr">edu@warangai.kr</a>로 알려 주세요.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="wrap">
-      <span class="sec-num">05 · Contact</span>
+      <span class="sec-num">06 · Contact</span>
       <h2>강의와 컨설팅,<br>와랑에 문의하세요.</h2>
       <p class="sub">기관·학교·기업 교육, 강사 양성, 콘텐츠 제작까지. 일정과 대상, 목적을 알려 주시면 그에 맞춰 설계해 드립니다.</p>
 
