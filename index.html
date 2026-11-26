@@ -801,7 +801,7 @@
       btn.setAttribute('aria-label',open?'메뉴 닫기':'메뉴 열기');
     });
     nav.addEventListener('click',function(e){
-      if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+      if(e.target.tagName==='A'){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','메뉴 열기');}
     });
   })();
 </script>
